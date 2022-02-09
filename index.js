@@ -6,10 +6,6 @@ app.use(express.urlencoded.apply({extended: false}));
 
 app.use(express.static(path.join(__dirname,"public")));
 
-//app.get('/', function (req, res) {
-//  res.send();
-//});
-
 app.post('/', function (req, res) {
   const answer = req.body.answer;
   if(answer === "2"){
@@ -27,7 +23,8 @@ app.get('/about', function (req, res) {
     res.send('Aboutページ');
   })
 
-app.listen(3000,function(){
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,function(){
     console.log("I am running!");
 });
 
